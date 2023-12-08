@@ -1,7 +1,5 @@
 import os
 import sys
-import openpyxl
-import win32com.client
 import subprocess
 
 import random
