@@ -159,15 +159,35 @@ def GenerateNilai(mean, mean2):
 
 
 if __name__ == "__main__":
-    if len(sys.argv) != 3:
-        print("Usage: python GenerateNilaiByAverage.py <integer_parameter> <integer_parameter>")
-        sys.exit(1)
+        mean1 = 0
+        mean2 = 0
+        keluar = False
 
-    try:
-        mean = int(sys.argv[1])
-        mean2 = int(sys.argv[2])
-        GenerateNilai(mean, mean2)
-        print("Selesai.")
+        while True:
+            while True:
+                input1 = input("Masukkan nilai rata-rata Pengetahuan: ")
+                input2 = input("Masukkan nilai rata-rata Keterampilan: ")
+                try:
+                    mean1 = int(input1)
+                    mean2 = int(input2)
+                    break
+                except ValueError:
+                    print("Input tidak valid. Mohon masukkan bilangan bulat.")
+                    confirm = str(input("Apakah anda ingin keluar (yes/no): "))
+                    if confirm == "yes":
+                        keluar = True
+                        break
+                    else:
+                        print("-----------------------------------------")
 
-    except ValueError:
-        print("Invalid integer parameter. Please provide a valid integer.")
+            if not keluar:
+                GenerateNilai(mean1, mean2)
+                print("Selesai.")
+                print("-----------------------------------------")
+
+            else:
+                break
+
+        print("Anda telah keluar dari penghitungan.")
+        print("-----------------------------------------")
+
